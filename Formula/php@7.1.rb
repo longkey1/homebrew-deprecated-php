@@ -4,12 +4,6 @@ class PhpAT71 < Formula
   url "https://www.php.net/distributions/php-7.1.33.tar.xz"
   sha256 "bd7c0a9bd5433289ee01fd440af3715309faf583f75832b64fe169c100d52968"
 
-  bottle do
-    sha256 "8d5fe6ef069cd38913facb42b72b5597aaeb1d7eb05377ba53259e2d5dd1ba2e" => :catalina
-    sha256 "0d349a06ffb681665c2c07efdc33cf9fe5494583024745208cce708ae6b121de" => :mojave
-    sha256 "2b3d9af13b1a65c06192ad3a2a8a2ccd06ed4dd2497fe8707c15a6fa812fea5f" => :high_sierra
-  end
-
   keg_only :versioned_formula
 
   depends_on "httpd" => [:build, :test]
