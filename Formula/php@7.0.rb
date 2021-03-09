@@ -1,6 +1,6 @@
 class PhpAT70 < Formula
   desc "General-purpose scripting language"
-  homepage "https://secure.php.net/"
+  homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.0.33.tar.xz"
   sha256 "ab8c5be6e32b1f8d032909dedaaaa4bbb1a209e519abb01a52ce3914f9a13d96"
 
@@ -42,6 +42,10 @@ class PhpAT70 < Formula
     if MacOS.version == :el_capitan || MacOS.version == :sierra
       ENV["SDKROOT"] = MacOS.sdk_path
     end
+
+    # Workaround for https://bugs.php.net/80310
+    ENV.append "CFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
+    ENV.append "CXXFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
